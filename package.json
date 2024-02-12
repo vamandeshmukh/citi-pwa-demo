@@ -4,7 +4,7 @@
   "description": "PWA demo project for Citi trainees 2024",
   "main": "server.js",
   "scripts": {
-    "start": "node src/server.js",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -18,5 +18,6 @@
   "license": "ISC",
   "dependencies": {
     "express": "4.18.2"
-  }
+  },
+  "type": "module"
 }

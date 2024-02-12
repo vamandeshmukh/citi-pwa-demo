@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <div>
+        <h1>Citi PWA App</h1>
+        <hr />
+        <p id="citi"></p>
+    </div>
+
+    <script>
+
+        const url = 'https://jsonplaceholder.typicode.com/users/1';
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('citi').innerText = `Phone: ${data.phone}`;
+            })
+            .catch(error => {
+                console.error('Error fetching citi data:', error);
+                document.getElementById('citi').innerText = 'Error fetching citi data';
+            });
+
+    </script>
+
+
+
+</body>
+
+</html>
