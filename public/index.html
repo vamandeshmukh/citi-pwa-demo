@@ -1,59 +1,28 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
 
 <head>
+
     <link rel="manifest" href="/manifest.json">
+
+    <script src="./doc.js"></script>
 
     <script>
         if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service-worker.js')
-                    .then(registration => {
-                        console.log('Service Worker registered:', registration);
-                    })
-                    .catch(error => {
-                        console.error('Service Worker registration failed:', error);
-                    });
-            });
+            navigator.serviceWorker.register('/service-worker.js', { scope: '/' });
         }
-    </script>
-
-    <script>
-        fetch('/manifest.json')
-            .then(response => response.json())
-            .then(data => {
-                document.title = data.name;
-            })
-            .catch(error => {
-                console.error('Error fetching manifest.json:', error);
-            });
     </script>
 
 </head>
 
 <body>
-    <h1>Citi App</h1>
-    <div id="citi"></div>
+    <h1>Citi PWA App</h1>
+    <hr />
+    <p><strong>Thought for the day:</strong></p>
+    <p id="thought"></p>
 
-    <script>
-        const url = 'https://jsonplaceholder.typicode.com/users/1';
-
-        fetch(url)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Failed to fetch citi data');
-                }
-                return response.json();
-            })
-            .then(data => {
-                document.getElementById('citi').innerText = `Phone number: ${data.phone}`;
-            })
-            .catch(error => {
-                console.error('Error fetching citi data:', error);
-                document.getElementById('citi').innerText = 'Error fetching citi data';
-            });
-    </script>
+    <script src="./quote.js"></script>
 </body>
 
 </html>
