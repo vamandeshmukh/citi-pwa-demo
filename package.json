@@ -1,0 +1,22 @@
+{
+  "name": "pwa-demo",
+  "version": "1.0.0",
+  "description": "PWA demo project for Citi trainees 2024",
+  "main": "server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "nodejs",
+    "js",
+    "citi",
+    "pwa"
+  ],
+  "author": "Vaman Deshmukh",
+  "license": "ISC",
+  "dependencies": {
+    "express": "4.18.2"
+  }
+}
