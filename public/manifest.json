@@ -1,0 +1,8 @@
+{
+    "name": "Citi App",
+    "short_name": "Citi",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "theme_color": "#2196f3",
+    "background_color": "#ffffff"
+}
