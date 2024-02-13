@@ -3,17 +3,13 @@
 <html>
 
 <head>
-
     <link rel="manifest" href="/manifest.json">
-
     <script src="./doc.js"></script>
-
     <script>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('/service-worker.js', { scope: '/' });
         }
     </script>
-
 </head>
 
 <body>
@@ -21,7 +17,6 @@
     <hr />
     <p><strong>Thought for the day:</strong></p>
     <p id="thought"></p>
-
     <script src="./quote.js"></script>
 </body>
 
