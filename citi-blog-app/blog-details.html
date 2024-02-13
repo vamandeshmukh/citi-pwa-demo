@@ -9,7 +9,7 @@
 
     <a href="./index.html">Home</a>
     <a href="./blog-list.html">Blog List</a>
-    
+
     <h1>Citi Blog App</h1>
     <p>Blog Details</p>
     <div>
@@ -17,29 +17,8 @@
         <p id="blog-body"></p>
     </div>
 
-    <!-- <script src='./script.js'></script> -->
+    <script src='./script.js'></script>
 
-    <script>
-
-        const blogUrl = 'https://jsonplaceholder.typicode.com/posts';
-        // fetch blog details 
-
-        const blogId = new URLSearchParams(window.location.search).get('blog-id');
-
-        fetch(`${blogUrl}/${blogId}`)
-            .then((resp) => {
-                return resp.json();
-            })
-            .then((data) => {
-                console.log(data);
-                document.getElementById('blog-title').innerText = data.title;
-                document.getElementById('blog-body').innerText = data.body;
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-
-    </script>
 </body>
 
 </html>
