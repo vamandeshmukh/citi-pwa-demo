@@ -3,16 +3,21 @@
 <html>
 
 <head>
+
     <link rel="manifest" href="/manifest.json">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/Manifest -->
+
     <script src="./doc.js"></script>
+
     <script>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('/service-worker.js', { scope: '/' });
         }
     </script>
+
 </head>
 
-<body>
+<body >
     <h1>Citi PWA App</h1>
     <hr />
     <p><strong>Thought for the day:</strong></p>
@@ -21,3 +26,29 @@
 </body>
 
 </html>
+
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+
+    <link rel="manifest" href="./manifest.json">
+
+    <script>
+        fetch('manifest.json')
+            .then(resp => resp.json())
+            .then(resp => document.title = resp.name);
+    </script>
+
+</head>
+
+<body>
+    <h1>App</h1>
+
+
+    <script src="./service-worker.js"></script>
+
+
+</body>
+
+</html> -->
