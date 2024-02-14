@@ -1,3 +1,5 @@
+// serviceWorker.js 
+
 const citiCache = "citi-app-v1";
 
 const assets = [
