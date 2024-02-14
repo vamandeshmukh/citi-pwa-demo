@@ -4,6 +4,8 @@
 run with - 
 npx http-server -p 9999 -c-1
 
+npm install --location=global http-server 
+
 
 [PWA App Docs]
 (https://docs.google.com/document/d/1G2pVNapB3e2mtJMJYOj3ib5jUPNn5brUyVBs1pt9Sg8/edit?usp=sharing)
