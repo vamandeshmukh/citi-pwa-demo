@@ -3,11 +3,11 @@
 const citiCache = "citi-app-v1";
 
 const assets = [
-  "/",
-  "/index.html",
-  "/css/style.css",
-  "/js/app.js",
-  "/images/citi-logo.png"
+  // "/",
+  // "/index.html",
+  // "/css/style.css",
+  // "/js/app.js",
+  // "/images/citi-logo.png"
 ];
 
 self.addEventListener("install", installEvent => {
