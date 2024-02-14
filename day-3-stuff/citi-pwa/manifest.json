@@ -1,0 +1,27 @@
+{
+  "name": "Citi PWA App",
+  "short_name": "Citi App",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#f2f2f2",
+  "theme_color": "#262626",
+  "icons": [
+    {
+      "src": "/images/citi512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/citi192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/citi-logo.png",
+      "type": "image/png",
+      "sizes": "2000x540"
+    }
+  ]
+}
