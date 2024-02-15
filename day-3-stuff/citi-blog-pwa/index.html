@@ -41,7 +41,18 @@
     <h1>Citi bank progressive web application</h1>
     <section>
 
-      <video id="camera-preview" autoplay playsinline></video>
+      <!-- Camera preview  -->
+      <!-- <video id="camera-preview" autoplay playsinline></video> -->
+
+      <div class="camera">
+        <video id="video">Video stream not available.</video>
+        <button id="startbutton">Take photo</button>
+      </div>
+      <canvas id="canvas"> </canvas>
+      <div class="output">
+        <img id="photo" alt="The screen capture will appear in this box." />
+      </div>
+
 
       <div id="blog-list"></div>
     </section>
