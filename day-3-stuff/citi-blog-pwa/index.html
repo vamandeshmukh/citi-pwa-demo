@@ -43,12 +43,15 @@
 
       <section>
         <h2>Get Blog By Id</h2>
+
         <form onsubmit="getBlogById(); return false">
           <label for="blog-id">Blog Id</label>
           <input type="number" id="blog-id" name="blog-id" value="" />
           <input type="submit" value="Get Blog" />
         </form>
+
         <div>
+          <p>Blog</p>
           <h3 id="blog-title"></h3>
           <p id="blog-body"></p>
         </div>

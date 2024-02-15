@@ -28,7 +28,6 @@ const getBlogById = () => {
       document.getElementById('blog-list').innerHTML = blogList;
     })
     .catch();
-
 }
 
 
