@@ -43,7 +43,6 @@ self.addEventListener("load", () => {
   });
 });
 
-
 function randomNotification() {
   const notifTitle = 'title';
   const notifBody = 'created';
