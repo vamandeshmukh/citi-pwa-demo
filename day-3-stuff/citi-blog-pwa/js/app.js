@@ -24,66 +24,50 @@ fetch(url)
 
 
 
+const button = document.getElementById("notifications");
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/serviceWorker.js')
-          .then(registration => {
-              console.log('Service worker registered:', registration);
-              return registration.pushManager.getSubscription()
-                  .then(subscription => {
-                      if (subscription) {
-                          return subscription;
-                      }
-                      return registration.pushManager.subscribe({
-                          userVisibleOnly: true,
-                          applicationServerKey: urlBase64ToUint8Array('YOUR_PUBLIC_KEY')
-                      });
-                  });
-          })
-          .then(subscription => {
-              console.log('User subscribed to push notifications:', subscription);
-          })
-          .catch(error => {
-              console.error('Service worker registration failed:', error);
-          });
+button.addEventListener("click", () => {
+  Notification.requestPermission().then((result) => {
+    console.log('click');
+    if (result === "granted") {
+      randomNotification();
+    }
   });
+});
+
+
+function randomNotification() {
+  const notifTitle = 'title';
+  const notifBody = 'created';
+  const notifImg = `/images/citi-logo.png`;
+  const options = {
+    body: notifBody,
+    icon: notifImg,
+  };
+  new Notification(notifTitle, options);
+  setTimeout(randomNotification, 30000);
 }
 
-function urlBase64ToUint8Array(base64String) {
-  const padding = '='.repeat((4 - base64String.length % 4) % 4);
-  const base64 = (base64String + padding)
-      .replace(/\-/g, '+')
-      .replace(/_/g, '/');
-  const rawData = window.atob(base64);
-  const outputArray = new Uint8Array(rawData.length);
-  for (let i = 0; i < rawData.length; ++i) {
-      outputArray[i] = rawData.charCodeAt(i);
-  }
-  return outputArray;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
