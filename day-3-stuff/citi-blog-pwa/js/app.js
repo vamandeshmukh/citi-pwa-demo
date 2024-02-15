@@ -8,19 +8,42 @@ if ("serviceWorker" in navigator) {
 }
 
 
+// get blog by id 
+
 const url = 'https://jsonplaceholder.typicode.com/posts';
 
-fetch(url)
-  .then(resp => resp.json())
-  .then(data => {
-    console.log(data);
-    let blogList = `<p><b>Blog List</b></p>`;
-    data.forEach(elem => {
-      blogList += `<p>${elem.title}</p>`;
-    });
-    document.getElementById('blog-list').innerHTML = blogList;
-  })
-  .catch();
+const getBlogById = () => {
+  const blogId = document.getElementById('blog-id').value;
+  console.log(blogId);
+
+  fetch(`${url}/${blogId}`)
+    .then(resp => resp.json())
+    .then(data => {
+      console.log(data);
+      document.getElementById('blog-title').innerHTML = data.title;
+      document.getElementById('blog-body').innerHTML = data.body;
+      data.forEach(elem => {
+        blogList += `<p>${elem.title}</p>`;
+      });
+      document.getElementById('blog-list').innerHTML = blogList;
+    })
+    .catch();
+
+}
+
+
+// const url = 'https://jsonplaceholder.typicode.com/posts';
+// fetch(url)
+//   .then(resp => resp.json())
+//   .then(data => {
+//     console.log(data);
+//     let blogList = `<p><b>Blog List</b></p>`;
+//     data.forEach(elem => {
+//       blogList += `<p>${elem.title}</p>`;
+//     });
+//     document.getElementById('blog-list').innerHTML = blogList;
+//   })
+//   .catch();
 
 
 // camera access 
@@ -42,6 +65,7 @@ else {
 
 
 const camPics = () => {
+
   const width = 320;
   let height = 0;
   let streaming = false;
@@ -51,6 +75,7 @@ const camPics = () => {
   let startbutton = null;
 
   function showViewLiveResultButton() {
+
     if (window.self !== window.top) {
       document.querySelector(".contentarea").remove();
       const button = document.createElement("button");
