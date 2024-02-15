@@ -41,7 +41,7 @@ else {
 // source: https://developer.mozilla.org/en-US/docs/Web/API/Media_Capture_and_Streams_API/Taking_still_photos 
 
 
-(() => {
+const camPics = () => {
   const width = 320;
   let height = 0;
   let streaming = false;
@@ -133,7 +133,9 @@ else {
     }
   }
   window.addEventListener("load", startup, false);
-})();
+}
+
+camPics();
 
 
 
