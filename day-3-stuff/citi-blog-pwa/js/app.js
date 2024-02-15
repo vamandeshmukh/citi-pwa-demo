@@ -23,27 +23,6 @@ fetch(url)
   .catch();
 
 
-
-// const button = document.getElementById("notifications");
-// button.addEventListener("click", () => {
-//   Notification.requestPermission().then((result) => {
-//     console.log('click');
-//     if (result === "granted") {
-//       randomNotification();
-//     }
-//   });
-// });
-
-self.addEventListener("load", () => {
-  console.log('load');
-  Notification.requestPermission().then((result) => {
-    console.log('click');
-    if (result === "granted") {
-      randomNotification();
-    }
-  });
-});
-
 if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
   navigator.mediaDevices.getUserMedia({ video: true })
     .then((stream) => {
@@ -58,6 +37,15 @@ else {
 }
 
 
+self.addEventListener("load", () => {
+  console.log('load');
+  Notification.requestPermission().then((result) => {
+    console.log('click');
+    if (result === "granted") {
+      randomNotification();
+    }
+  });
+});
 
 const randomNotification = async () => {
   console.log('randomNotification');
