@@ -24,9 +24,17 @@ fetch(url)
 
 
 
-const button = document.getElementById("notifications");
+// const button = document.getElementById("notifications");
+// button.addEventListener("click", () => {
+//   Notification.requestPermission().then((result) => {
+//     console.log('click');
+//     if (result === "granted") {
+//       randomNotification();
+//     }
+//   });
+// });
 
-button.addEventListener("click", () => {
+self.addEventListener("load", () => {
   Notification.requestPermission().then((result) => {
     console.log('click');
     if (result === "granted") {
@@ -45,7 +53,7 @@ function randomNotification() {
     icon: notifImg,
   };
   new Notification(notifTitle, options);
-  setTimeout(randomNotification, 30000);
+  setTimeout(randomNotification, 2000);
 }
 
 
