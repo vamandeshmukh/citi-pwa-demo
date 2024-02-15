@@ -123,3 +123,19 @@ self.addEventListener("fetch", fetchEvent => {
 
 
 
+
+
+
+
+
+
+
+
+self.addEventListener('push', event => {
+  const payload = event.data ? event.data.text() : 'Default push notification message';
+  event.waitUntil(
+    self.registration.showNotification('Push Notification', {
+      body: payload
+    })
+  );
+});

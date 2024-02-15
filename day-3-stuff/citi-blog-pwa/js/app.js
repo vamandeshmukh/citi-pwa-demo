@@ -21,3 +21,69 @@ fetch(url)
     document.getElementById('blog-list').innerHTML = blogList;
   })
   .catch();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/serviceWorker.js')
+          .then(registration => {
+              console.log('Service worker registered:', registration);
+              return registration.pushManager.getSubscription()
+                  .then(subscription => {
+                      if (subscription) {
+                          return subscription;
+                      }
+                      return registration.pushManager.subscribe({
+                          userVisibleOnly: true,
+                          applicationServerKey: urlBase64ToUint8Array('YOUR_PUBLIC_KEY')
+                      });
+                  });
+          })
+          .then(subscription => {
+              console.log('User subscribed to push notifications:', subscription);
+          })
+          .catch(error => {
+              console.error('Service worker registration failed:', error);
+          });
+  });
+}
+
+function urlBase64ToUint8Array(base64String) {
+  const padding = '='.repeat((4 - base64String.length % 4) % 4);
+  const base64 = (base64String + padding)
+      .replace(/\-/g, '+')
+      .replace(/_/g, '/');
+  const rawData = window.atob(base64);
+  const outputArray = new Uint8Array(rawData.length);
+  for (let i = 0; i < rawData.length; ++i) {
+      outputArray[i] = rawData.charCodeAt(i);
+  }
+  return outputArray;
+}
