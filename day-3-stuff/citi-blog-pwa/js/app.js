@@ -35,6 +35,7 @@ fetch(url)
 // });
 
 self.addEventListener("load", () => {
+  console.log('load');
   Notification.requestPermission().then((result) => {
     console.log('click');
     if (result === "granted") {
@@ -43,20 +44,32 @@ self.addEventListener("load", () => {
   });
 });
 
-const randomNotification = () => {
-  console.log('randomNotification');
-  const notifTitle = 'title';
-  const notifBody = 'created';
-  const notifImg = `/images/citi-logo.png`;
-  const options = {
-    body: notifBody,
-    icon: notifImg,
-  };
-  new Notification(notifTitle, options);
-  setTimeout(randomNotification, 2000);
+if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then((stream) => {
+      let video = document.getElementById('camera-preview');
+      video.srcObject = stream;
+      video.onplay();
+    })
+    .catch(err => console.log(err));
+}
+else {
+  console.log('not working!');
 }
 
 
+
+const randomNotification = async () => {
+  console.log('randomNotification');
+  const notifImg = `/images/citi-logo.png`;
+  const options = {
+    title: 'title1',
+    body: 'body1',
+    icon: notifImg,
+  };
+  new Notification(notifTitle, options);
+  setTimeout(randomNotification, 10000);
+}
 
 
 
