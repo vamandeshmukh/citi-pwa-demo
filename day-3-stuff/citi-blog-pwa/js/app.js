@@ -43,7 +43,8 @@ self.addEventListener("load", () => {
   });
 });
 
-function randomNotification() {
+const randomNotification = () => {
+  console.log('randomNotification');
   const notifTitle = 'title';
   const notifBody = 'created';
   const notifImg = `/images/citi-logo.png`;
