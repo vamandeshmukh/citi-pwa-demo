@@ -30,7 +30,6 @@ const getBlogById = () => {
     .catch();
 }
 
-
 // const url = 'https://jsonplaceholder.typicode.com/posts';
 // fetch(url)
 //   .then(resp => resp.json())
@@ -43,7 +42,6 @@ const getBlogById = () => {
 //     document.getElementById('blog-list').innerHTML = blogList;
 //   })
 //   .catch();
-
 
 // camera access 
 
